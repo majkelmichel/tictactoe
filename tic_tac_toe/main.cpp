@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <stdlib.h>
 using namespace std;
 
 void indexes(){
@@ -37,10 +38,13 @@ void player(int num, int *board){
     cout << "Player " << num << " choose field you want to mark: ";
     do {
         cin >> x;
+        if (x > 8 || x < 0) {
+            x = -1;
+        }
         if (board[x] != 0) {
             cout << "This field is already marked. Try different: ";
         }
-    }while(board[x] != 0);
+    }while(board[x] != 0 && x == -1);
     board[x] = num;
     show_board(board);
 }
@@ -85,6 +89,9 @@ bool win(int *b) {
 }
 void game(int *board) {
     for (int i = 0; i < 9; i++) {
+        system("CLS");
+        indexes();
+        show_board(board);
         if(i % 2 == 0) {
             player(1,board);
         }
@@ -93,6 +100,9 @@ void game(int *board) {
         }
         if (win(board)) {
             break;
+        }
+        else if (i == 8) {
+            cout << "It's a draw.";
         }
     }
 }
