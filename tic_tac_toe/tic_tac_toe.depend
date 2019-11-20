@@ -1,5 +1,6 @@
 # depslib dependency file v1.0
-1574248761 source:c:\users\uczeñ\downloads\tictactoe-master\tic_tac_toe\main.cpp
+1574250320 source:c:\users\uczeñ\downloads\tictactoe-master\tic_tac_toe\main.cpp
 	<iostream>
 	<string>
+	<stdlib.h>
 
